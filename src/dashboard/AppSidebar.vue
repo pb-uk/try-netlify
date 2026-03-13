@@ -1,5 +1,5 @@
 <script setup lang="ts">
-import { useRoute } from 'vue-router';
+import { useRoute, RouterLink } from 'vue-router';
 
 import SidebarTeams from './SidebarTeams.vue';
 
@@ -23,12 +23,12 @@ const navigation = [
 	{ name: 'Dashboard', href: '/', icon: HomeIcon },
 	{ name: 'Stripe', href: '/stripe', icon: StripeIcon },
 	{ name: 'Zettle', href: '/zettle', icon: ZettleIcon },
-	{ name: 'Team', href: '#', icon: UsersIcon },
-	{ name: 'Projects', href: '#', icon: FolderIcon },
-	{ name: 'Calendar', href: '#', icon: CalendarIcon },
-	{ name: 'Documents', href: '#', icon: DocumentDuplicateIcon },
-	{ name: 'Reports', href: '#', icon: ChartPieIcon },
-	{ name: 'Login', label: 'Sign in', href: '/sign-in', icon: UserIcon },
+	// { name: 'Team', href: '#', icon: UsersIcon },
+	// { name: 'Projects', href: '#', icon: FolderIcon },
+	// { name: 'Calendar', href: '#', icon: CalendarIcon },
+	// { name: 'Documents', href: '#', icon: DocumentDuplicateIcon },
+	// { name: 'Reports', href: '#', icon: ChartPieIcon },
+	// { name: 'Login', label: 'Sign in', href: '/sign-in', icon: UserIcon },
 	{ name: 'Profile', href: '/profile', icon: UserIcon },
 	{ name: 'Settings', href: '/settings', icon: Cog6ToothIcon },
 ];
@@ -55,8 +55,8 @@ const navigation = [
 				<li>
 					<ul role="list" class="-mx-2 space-y-1">
 						<li v-for="item in navigation" :key="item.name">
-							<a
-								:href="item.href"
+							<RouterLink
+								:to="{ name: item.name }"
 								:class="[
 									route.name === item.name ?
 										'bg-gray-50 text-indigo-600 dark:bg-white/5 dark:text-white'
@@ -75,7 +75,7 @@ const navigation = [
 									aria-hidden="true"
 								/>
 								{{ item.name }}
-							</a>
+							</RouterLink>
 						</li>
 					</ul>
 				</li>

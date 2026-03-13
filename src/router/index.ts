@@ -8,7 +8,10 @@ const router = createRouter({
 	history: createWebHistory(import.meta.env.BASE_URL),
 	routes: [
 		{ path: '/', name: 'Dashboard', component: DashboardPage },
+		{ path: '/stripe', name: 'Stripe', component: DashboardPage },
 		{ path: '/zettle', name: 'Zettle', component: ZettlePage },
+		{ path: '/profile', name: 'Profile', component: DashboardPage },
+		{ path: '/settings', name: 'Settings', component: DashboardPage },
 
 		{
 			path: '/:pathMatch(.*)',
